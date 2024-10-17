@@ -11,12 +11,14 @@ const PaginaInicial = () => {
             <BotaoCustomizado cor="primaria" aoClicar={() => navigate('/lista-produtos')}>
                 Lista Produtos
             </BotaoCustomizado>
-            {/* <BotaoCustomizado cor="secundaria" aoClicar={() => alert('TONY')}>
-                TONY
+            <BotaoCustomizado cor="secundaria" aoClicar={() => navigate('/botao-contador')}>
+               Botão Contador
+                
             </BotaoCustomizado>
-            <BotaoCustomizado cor="terciaria" aoClicar={() => alert('*CHOPPER*')}>
-                CHOPPER
-            </BotaoCustomizado> */}
+            <BotaoCustomizado cor="terciaria" aoClicar={() => navigate('/lista-tarefas')}>
+               Lista de tarefas
+                
+            </BotaoCustomizado>
         </Principal>
     );
 };
