@@ -8,7 +8,7 @@ const PaginaListaTarefas = () => {
 
     const adicionarNaLista = () => {
         if (descricao && descricao.trim()) {
-            tarefas.push(descricao);
+            tarefas.push({ descricao, feita: false });
             setTarefas([...tarefas]);
         }
         else {
@@ -19,13 +19,24 @@ const PaginaListaTarefas = () => {
     };
     const removerDaLista = (index) => {
 
-        tarefas.splice(index, 1);
-        setTarefas([...tarefas]);
+        if(confirm('Tem Certeza?')){
+            tarefas.splice(index, 1);
+            setTarefas([...tarefas]);
+        }
 
+    };
+    const marcarComoFeita = (index) => {
+        const tarefaEdicao = tarefas[index];
+        tarefas[index] = {
+            ...tarefaEdicao,
+            feita: !tarefaEdicao.feita
+        };
+
+        setTarefas([...tarefas])
     };
 
     return (
-        <Principal titulo={"Lista de Tarefas"} voltarPara={"/"}>
+        <Principal titulo={`Lista de Tarefas (${tarefas.length})`} voltarPara={"/"}>
             <div className="listaTarefas-css">
                 <input id="campoDescricao"
                     type="text"
@@ -42,15 +53,31 @@ const PaginaListaTarefas = () => {
             <ul>
                 {tarefas.map((item, index) => {
                     return (
-                        <li key={index}>
-                            {item} 
-                            <FaRegTrashCan 
-                             color="purple" 
-                            onClick={() => removerDaLista(index)}/>
-                             </li>
+                        <li key={index} className="pagina-lista-tarefa_item">
+                            <input
+                                type="checkbox"
+                                checked={item.feita}
+                                onChange={() => marcarComoFeita(index)} />
+                                <span 
+                                style={{
+
+                                }}>
+
+                                </span>
+                            {item.descricao}
+                            <FaRegTrashCan
+                                color="purple"
+                                onClick={() => removerDaLista(index)} />
+                        </li>
                     )
                 })}
             </ul>
+            {tarefas.length === 0 && (
+                <span className="pagina-lista-tarefas_mensagem-vazia">
+                    Não tem tarefas listadas.
+                </span>
+            )
+            }
         </Principal>
     );
 };
