@@ -1,24 +1,30 @@
 .botao-customizado_root {
-    padding: 16px;
-    border: none;
+  padding: 16px;
+  border: none;
 
-    font-size: 14px;
-    opacity: 0.7;
-    cursor: pointer;
+  font-size: 14px;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
-.botao-customizado_root:hover{
-    opacity: 1;
+.botao-customizado_root:hover {
+  opacity: 1;
 }
 
 .botao-customizado_primario {
-    background-color: var(--cor-primaria);
+  background-color: var(--cor-primaria);
 }
 
 .botao-customizado_secundario {
-    background-color: var(--cor-secundaria);
+  background-color: var(--cor-secundaria);
 }
 
 .botao-customizado_terciario {
-    background-color: var(--cor-terciaria);
+  background-color: var(--cor-terciaria);
+}
+.botao-customizado_quaternario {
+  background-color: var(--cor-quaternario);
+}
+.botao-customizado_sucesso {
+  background-color: var(--cor-sucesso);
 }
